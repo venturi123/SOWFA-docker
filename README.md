@@ -1,6 +1,6 @@
 # SOWFA-Docker
 
-This repository contains a pre-built Docker image along with all the necessary packages and detailed build instructions for SOWFA.
+This repository provides a pre-built Docker image with all the essential packages and comprehensive build instructions for SOWFA, utilizing OpenFOAM 2.4.x and OpenFAST v2.3.0.
 
 ## Quick Start Guide
 
@@ -23,13 +23,13 @@ docker load -i sowfa_image.tar.gz
 
 # Create a new container and enter its bash shell
 docker run -it --name sowfa sowfa_images /bin/bash
-
-# Feel free to star this repository, close this page, and enjoy your CFD journey!
 ```
+
+Feel free to star this repository, close this page, and enjoy your SOWFA journey!
 
 ## Build Instructions
 
-This document provides detailed instructions on how to compile and install NREL/SOWFA coupled with OpenFAST. Through multiple tests, Ubuntu 16.04 was found to have the best compatibility. The recommended approach is to build in an Ubuntu 16.04 (GCC-5) container.
+The following provides detailed instructions on how to compile and install NREL/SOWFA coupled with OpenFAST. Through multiple tests, Ubuntu 16.04 was found to have the best compatibility. The recommended approach is to build in an Ubuntu 16.04 (GCC-5) container.
 
 ### Download Required Packages
 
@@ -246,21 +246,21 @@ Check for binary solvers, ensuring the expected number is present:
 ```bash
 ls ${SOWFA_DIR}/applications/bin/${WM_OPTIONS}
 # Output
- ABLSolver                            ABLTerrainSolver
- pisoFoamTurbine.ADM                  pisoFoamTurbine.ALM
- pisoFoamTurbine.ALMAdvanced          pisoFoamTurbine.ALMAdvancedOpenFAST
- setFieldsABL                         turbineTestHarness.ALM
- turbineTestHarness.ALMAdvanced       windPlantSolver.ADM
- windPlantSolver.ALM                  windPlantSolver.ALMAdvanced
- windPlantSolver.ALMAdvancedOpenFAST
+# ABLSolver                            ABLTerrainSolver
+# pisoFoamTurbine.ADM                  pisoFoamTurbine.ALM
+# pisoFoamTurbine.ALMAdvanced          pisoFoamTurbine.ALMAdvancedOpenFAST
+# setFieldsABL                         turbineTestHarness.ALM
+# turbineTestHarness.ALMAdvanced       windPlantSolver.ADM
+# windPlantSolver.ALM                  windPlantSolver.ALMAdvanced
+# windPlantSolver.ALMAdvancedOpenFAST
 
 
 ls ${SOWFA_DIR}/lib/${WM_OPTIONS}/
 # Output
- libSOWFATurbineModelsOpenFAST.so  libSOWFATurbineModelsStandard.so
- libSOWFAfiniteVolume.so           libSOWFAincompressibleLESModels.so
- libSOWFAsampling.so               libSOWFArutilityFunctionObjects.so
- libSOWFAfileFormats.so
+# libSOWFATurbineModelsOpenFAST.so  libSOWFATurbineModelsStandard.so
+# libSOWFAfiniteVolume.so           libSOWFAincompressibleLESModels.so
+# libSOWFAsampling.so               libSOWFArutilityFunctionObjects.so
+# libSOWFAfileFormats.so
 ```
 
 ### Runtime Configuration
@@ -323,9 +323,7 @@ docker save -o sowfa_image.tar sowfa_image:latest
 
 ## References
 
-- [Sylabs Singularity](https://github.com/sylabs/singularity)
 - [SOWFA Installation by Pablo Benito](https://github.com/pablo-benito/SOWFA-installation)
 - [OpenFOAM 2.4.x Ubuntu Installation Guide](https://openfoamwiki.net/index.php/Installation/Linux/OpenFOAM-2.4.x/Ubuntu#Ubuntu_14.04)
-- [Blog Post by CSDN User](https://blog.csdn.net/u012700322/article/details/119141743)
 - [OpenFAST Installation Documentation](https://openfast.readthedocs.io/en/main/source/install/index.html)
-- [Ubuntu 18.04 Qt Plugin Issue](https://blog.csdn.net/LOVEmy134611/article/details/107212845)
+
