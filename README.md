@@ -22,7 +22,11 @@ cat sowfa_image_part_* > sowfa_image.tar.gz
 docker load -i sowfa_image.tar.gz
 
 # Create a new container and enter its bash shell
-docker run -it --name sowfa sowfa_images /bin/bash
+docker run -it --rm \
+    --user $(id -u $(whoami)):$(id -g $(whoami)) \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /etc/group:/etc/group:ro \
+    sowfa_image /bin/bash
 ```
 
 Feel free to star this repository, close this page, and enjoy your SOWFA journey!
